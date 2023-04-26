@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using Library.Models
+@model List<Book>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<h3 class="text-center">Kitap Listeleme Sayfası</h3>
+<a asp-controller="Book" asp-action="Create" asp-area="Management" class="btn btn-primary" style="float:right">Yeni ekle</a>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>PageCount</th>
+			<th>Author</th>
+			<th>BookType</th>
+            <th>Aksiyonlar</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (int i = 0; i < Model.Count; i++)
+		{
+			<tr>
+				<th>@(i+1)</th>
+				<th>@Model[i].Name</th>
+				<th>@Model[i].PageCount</th>
+				<th>@(Model[i].Author.FirstName+ " " + Model[i].Author.LastName)</th>
+				<th>@Model[i].BookType.Name</th>
+				<td>
+					<a class="big-icon" asp-controller="Book" asp-action="Edit" asp-area="Management" asp-route-id="@Model[i].ID"><i class="bi bi-pencil-square"></i></a>
+					<a class="big-icon margin icon" asp-controller="Book" asp-action="Delete" asp-area="Management" asp-route-id="@Model[i].ID"><i class="bi bi-x-circle-fill"></i></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

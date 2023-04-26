@@ -1,0 +1,29 @@
+﻿@using Library.Dto
+@using Library.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model (Book book,List<AuthorDto> authors,List<BookTypeDto> bookTypes)
+
+<h3 class="text-center">Yeni Kitap Ekleme Sayfası</h3>
+<form method="post" asp-controller="Book" asp-action="Create" asp-area="Management">
+	<div class="mb-3">
+		<label class="form-label" asp-for="book.Name">İsim</label>
+		<input type="text" class="form-control" asp-for="book.Name"/>
+		<span asp-validation-for="book.Name" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" asp-for="book.PageCount">Sayfa Sayısı</label>
+		<input type="text" class="form-control" asp-for="book.PageCount" />
+	</div>
+	<div class="mb-3">
+		<label class="form-label" asp-for="book.AuthorID">Yazar</label>
+		<select class="form-control" asp-for="book.AuthorID" asp-items="@(new SelectList(Model.authors,"ID","FullName"))"></select>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" asp-for="book.BookTypeID">Kitap Türü</label>
+		<select class="form-control" asp-for="book.BookTypeID" asp-items="@(new SelectList(Model.bookTypes,"ID","Name"))"></select>
+	</div>
+	<div class="mb-3">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+	</div>
+</form>

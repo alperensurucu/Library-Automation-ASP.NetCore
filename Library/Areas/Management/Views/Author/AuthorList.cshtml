@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using Library.Models
+@model List<Author>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<h3 class="text-center">Yazar Listeleme Sayfası</h3>
+<a asp-controller="Author" asp-action="Create" asp-area="Management" class="btn btn-primary" style="float:right">Yeni ekle</a>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>FirstName</th>
+			<th>Last Name</th>
+			<th>Aksiyonlar</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (int i = 0; i < Model.Count; i++)
+		{
+			<tr>
+				<th>@(i+1)</th>
+				<th>@Model[i].FirstName</th>
+				<th>@Model[i].LastName</th>
+				<td>
+					<a class="big-icon" asp-controller="Author" asp-action="Edit" asp-area="Management" asp-route-id="@Model[i].ID"><i class="bi bi-pencil-square"></i></a>
+					<a class="big-icon margin icon" asp-controller="Author" asp-action="Delete" asp-area="Management" asp-route-id="@Model[i].ID"><i class="bi bi-x-circle-fill"></i></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

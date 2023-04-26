@@ -1,0 +1,42 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using Library.Models;
+
+
+
+
+
+@model Library.Models.BookType
+
+<h3 class="text-center">Yeni Kitap Türü Ekleme Sayfası</h3>
+<form method="post" asp-controller="BookType" asp-action="Create" asp-area="Management">
+    <div class="mb-3">
+        <label class="form-label" asp-for="Name">İsim</label>
+        <input type="text" class="form-control" asp-for="Name" />
+    </div>
+<!--<div class="mb-3">
+		<label class="form-label" asp-for="Books">Kitap</label>
+		<input type="text" class="form-control" asp-for="Books" />
+	</div>  
+-->
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+
+<!--    
+
+<h3 class="text-center">Yeni Kitap Türü Ekleme Sayfası</h3>
+<form method="post" asp-controller="Author" asp-action="Create">
+	<div class="mb-3">
+		<label class="form-label" asp-for="Name">İsim</label>
+		<input type="text" class="form-control" asp-for="Name" />
+	</div>
+	<div class="mb-3">
+		<label class="form-label" asp-for="Books">Kitap</label>
+		<input type="text" class="form-control" asp-for="Books" />
+	</div>
+	<button type="submit" class="btn btn-primary">Kaydet</button>
+
+</form>
+
+-->
