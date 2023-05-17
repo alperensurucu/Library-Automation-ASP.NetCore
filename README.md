@@ -13,3 +13,7 @@ UserName= alperen,password=1234
 
  
  I hope you find this project as interesting and useful as I do, and I welcome any feedback or questions you might have.
+
+("ASP .NET Core MVC is a web application for saving and managing book types, author names and book information in my project, which I developed in accordance with the Entity Framework and OOP rules
+.-The Book Type Controller included in the project allows users to add, edit and delete book types, while the Author Controller is designed for adding, editing and deleting the names of authors.
+Changes made by users during all these operations are stored in the MSSQL database.)
